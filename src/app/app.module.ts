@@ -17,6 +17,7 @@ import { AboutComponent } from './components/core/about/about.component';
 import { StatusComponent } from './components/status/status.component';
 import { FakultetComponent } from './components/fakultet/fakultet.component';
 import { DepartmanComponent } from './components/departman/departman.component';
+import { StudentComponent } from './components/student/student.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DepartmanComponent } from './components/departman/departman.component';
     AboutComponent,
     StatusComponent,
     FakultetComponent,
-    DepartmanComponent
+    DepartmanComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
