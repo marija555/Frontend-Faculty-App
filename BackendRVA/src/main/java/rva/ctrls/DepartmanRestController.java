@@ -28,7 +28,7 @@ import rva.repository.DepartmanRepository;
 @Api(tags = {"Departman CRUD operacije"} )
 
 public class DepartmanRestController {
-	@Autowired
+	@Autowired 
 	public DepartmanRepository departmanRepository;
 	
 	@Autowired

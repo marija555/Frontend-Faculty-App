@@ -75,7 +75,7 @@ public class StatusRestController {
 	 
  
 	
-	@DeleteMapping("status/{id}")
+	@DeleteMapping("status/{id}") 
 	@CrossOrigin  
 	@ApiOperation(value= "Briše status iz baze podataka čiji je id prosleđen kao path varijabla")
 

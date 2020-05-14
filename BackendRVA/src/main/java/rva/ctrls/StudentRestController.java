@@ -34,10 +34,10 @@ public class StudentRestController {
 	
 	@Autowired
 	private DepartmanRepository departmanRepository;
-	
+	 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	
+	 
 	@GetMapping("student")
 	@ApiOperation(value= "Vraća kolekciju svih studenta iz baze podataka")
 
