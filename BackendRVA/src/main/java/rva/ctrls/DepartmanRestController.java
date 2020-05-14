@@ -53,7 +53,7 @@ public class DepartmanRestController {
 	}
 	
 	@PostMapping("departman")
-	@CrossOrigin
+	@CrossOrigin 
 	@ApiOperation(value= "Upisuje departman u bazu podataka")
 
 	public ResponseEntity<Departman> insertDepartman(@RequestBody Departman departman) {

@@ -90,7 +90,7 @@ public class StudentRestController {
 	@DeleteMapping("student/{id}")
 	@CrossOrigin
 	@ApiOperation(value= "Briše studenta iz baze podataka čiji je id prosleđen kao path varijabla")
-
+ 
 	public ResponseEntity<Student> deleteStudent(@PathVariable("id") Integer id){
 		if(!studentRepository.existsById(id))
 			return new ResponseEntity<Student>(HttpStatus.NO_CONTENT);
