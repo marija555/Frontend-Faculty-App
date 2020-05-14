@@ -1,3 +1,4 @@
+
 package rva.ctrls;
 
 import java.util.Collection;
@@ -34,10 +35,10 @@ public class StudentRestController {
 	
 	@Autowired
 	private DepartmanRepository departmanRepository;
-	 
+	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	 
+	
 	@GetMapping("student")
 	@ApiOperation(value= "Vraća kolekciju svih studenta iz baze podataka")
 
@@ -46,7 +47,7 @@ public class StudentRestController {
 	}
 	@GetMapping("student/{id}")
 	@ApiOperation(value= "Vraća studenta iz baze podataka čiji je ID prosleđen kao path varijabla")
- 
+
 	public ResponseEntity<Student> getStudent(@PathVariable("id") Integer id) {
 		Student student = studentRepository.getOne(id);
 		return new ResponseEntity<Student>(student,HttpStatus.OK);
@@ -61,7 +62,7 @@ public class StudentRestController {
 	}
 	
 	@PostMapping("student")
-	@CrossOrigin
+	@CrossOrigin 
 	@ApiOperation(value= "Upisuje studenta u bazu podataka")
 
 	public ResponseEntity<Student> insertStudent(@RequestBody Student student) {
@@ -74,7 +75,7 @@ public class StudentRestController {
 	
 	
 	@PutMapping("student")
-	@CrossOrigin
+	@CrossOrigin 
 	@ApiOperation(value= "Modifikuje studenta u bazi podataka")
 
 	public ResponseEntity<Student> updateDepartman(@RequestBody Student student) {
@@ -88,9 +89,9 @@ public class StudentRestController {
 	
 	
 	@DeleteMapping("student/{id}")
-	@CrossOrigin
+	@CrossOrigin 
 	@ApiOperation(value= "Briše studenta iz baze podataka čiji je id prosleđen kao path varijabla")
- 
+
 	public ResponseEntity<Student> deleteStudent(@PathVariable("id") Integer id){
 		if(!studentRepository.existsById(id))
 			return new ResponseEntity<Student>(HttpStatus.NO_CONTENT);
@@ -107,3 +108,4 @@ public class StudentRestController {
 	
 	
 }
+
