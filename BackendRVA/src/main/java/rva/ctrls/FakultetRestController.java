@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +50,8 @@ public class FakultetRestController {
 	public Collection<Fakultet> getFakultetByNaziv(@PathVariable("naziv") String naziv) {
 		return fakultetRepository.findByNazivContainingIgnoreCase(naziv);
 }
-	@PostMapping("fakultet")
+	@PostMapping("fakultet")	
+	@CrossOrigin
 	@ApiOperation(value= "Upisuje fakultet u bazu podataka")
 
 	public ResponseEntity<Fakultet> insertFakultet(@RequestBody Fakultet fakultet){
@@ -59,7 +61,9 @@ public class FakultetRestController {
 		}
 		return new ResponseEntity<>(HttpStatus.CONFLICT);
 	}
+	
 	@PutMapping("fakultet")
+	@CrossOrigin
 	@ApiOperation(value= "Modifikuje fakultet u bazi podataka")
 
 	public ResponseEntity<Fakultet> updateFakultet(@RequestBody Fakultet fakultet){
@@ -72,6 +76,7 @@ public class FakultetRestController {
 	
 	
 	@DeleteMapping("fakultet/{id}")
+	@CrossOrigin
 	@ApiOperation(value= "Briše fakultet iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Fakultet> deleteFakultet(@PathVariable ("id") Integer id){

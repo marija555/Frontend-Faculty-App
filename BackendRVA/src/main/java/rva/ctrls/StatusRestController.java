@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class StatusRestController {
 	}
 	
 	@PostMapping("status")
+	@CrossOrigin
 	@ApiOperation(value= "Upisuje status u bazu podataka")
 
 	public ResponseEntity<Status> insertStatus(@RequestBody Status status) {
@@ -60,6 +62,7 @@ public class StatusRestController {
 	}
 	
 	@PutMapping("status")
+	@CrossOrigin
 	@ApiOperation(value= "Modifikuje status u bazi podataka")
 
 	public ResponseEntity<Status> updateStatus(@RequestBody Status status) {
@@ -73,6 +76,7 @@ public class StatusRestController {
 
 	
 	@DeleteMapping("status/{id}")
+	@CrossOrigin
 	@ApiOperation(value= "Briše status iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Status> deleteStatus(@PathVariable("id") Integer id) {
