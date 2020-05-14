@@ -38,7 +38,7 @@ public class DepartmanRestController {
 	@ApiOperation(value= "Vraća kolekciju svih departmana iz baze podataka")
 	public Collection<Departman> getDepartman() {
 		return departmanRepository.findAll();
-	}
+	} 
 	
 	@GetMapping("departman/{id}")
 	@ApiOperation(value= "Vraća departman iz baze podataka čiji je ID prosleđen kao path varijabla")

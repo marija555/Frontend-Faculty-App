@@ -76,7 +76,7 @@ public class FakultetRestController {
 	
 	
 	@DeleteMapping("fakultet/{id}")
-	@CrossOrigin 
+	@CrossOrigin  
 	@ApiOperation(value= "Briše fakultet iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Fakultet> deleteFakultet(@PathVariable ("id") Integer id){

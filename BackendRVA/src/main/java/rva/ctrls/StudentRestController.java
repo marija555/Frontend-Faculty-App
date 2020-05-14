@@ -46,7 +46,7 @@ public class StudentRestController {
 	}
 	@GetMapping("student/{id}")
 	@ApiOperation(value= "Vraća studenta iz baze podataka čiji je ID prosleđen kao path varijabla")
-
+ 
 	public ResponseEntity<Student> getStudent(@PathVariable("id") Integer id) {
 		Student student = studentRepository.getOne(id);
 		return new ResponseEntity<Student>(student,HttpStatus.OK);

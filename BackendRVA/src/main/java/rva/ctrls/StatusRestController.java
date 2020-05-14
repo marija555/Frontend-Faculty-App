@@ -72,11 +72,11 @@ public class StatusRestController {
 	
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-
+	 
+ 
 	
 	@DeleteMapping("status/{id}")
-	@CrossOrigin 
+	@CrossOrigin  
 	@ApiOperation(value= "Briše status iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Status> deleteStatus(@PathVariable("id") Integer id) {
