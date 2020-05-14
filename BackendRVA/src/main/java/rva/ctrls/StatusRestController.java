@@ -22,6 +22,7 @@ import rva.jpa.Status;
 import rva.repository.StatusRepository;
 
 @RestController
+@CrossOrigin
 @Api(tags = {"Status CRUD operacije"} )
 
 public class StatusRestController {
@@ -51,7 +52,6 @@ public class StatusRestController {
 	}
 	
 	@PostMapping("status")
-	@CrossOrigin 
 	@ApiOperation(value= "Upisuje status u bazu podataka")
 
 	public ResponseEntity<Status> insertStatus(@RequestBody Status status) {
@@ -63,7 +63,6 @@ public class StatusRestController {
 	}
 	
 	@PutMapping("status")
-	@CrossOrigin 
 	@ApiOperation(value= "Modifikuje status u bazi podataka")
 
 	public ResponseEntity<Status> updateStatus(@RequestBody Status status) {
@@ -77,7 +76,6 @@ public class StatusRestController {
 
 	
 	@DeleteMapping("status/{id}")
-	@CrossOrigin 
 	@ApiOperation(value= "Briše status iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Status> deleteStatus(@PathVariable("id") Integer id) {

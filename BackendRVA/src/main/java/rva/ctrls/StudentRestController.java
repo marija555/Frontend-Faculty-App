@@ -26,6 +26,7 @@ import rva.repository.DepartmanRepository;
 import rva.repository.StudentRepository;
 
 @RestController
+@CrossOrigin
 @Api(tags = {"Student CRUD operacije"} )
 
 public class StudentRestController {
@@ -62,7 +63,6 @@ public class StudentRestController {
 	}
 	
 	@PostMapping("student")
-	@CrossOrigin 
 	@ApiOperation(value= "Upisuje studenta u bazu podataka")
 
 	public ResponseEntity<Student> insertStudent(@RequestBody Student student) {
@@ -75,7 +75,6 @@ public class StudentRestController {
 	
 	
 	@PutMapping("student")
-	@CrossOrigin 
 	@ApiOperation(value= "Modifikuje studenta u bazi podataka")
 
 	public ResponseEntity<Student> updateDepartman(@RequestBody Student student) {
@@ -89,7 +88,6 @@ public class StudentRestController {
 	
 	
 	@DeleteMapping("student/{id}")
-	@CrossOrigin 
 	@ApiOperation(value= "Briše studenta iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Student> deleteStudent(@PathVariable("id") Integer id){

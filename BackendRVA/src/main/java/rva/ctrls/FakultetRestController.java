@@ -23,6 +23,7 @@ import rva.jpa.Fakultet;
 import rva.repository.FakultetRepository;
 
 @RestController
+@CrossOrigin
 @Api(tags = {"Fakultet CRUD operacije"} )
 
 public class FakultetRestController {
@@ -52,7 +53,6 @@ public class FakultetRestController {
 		return fakultetRepository.findByNazivContainingIgnoreCase(naziv);
 }
 	@PostMapping("fakultet")	
-	@CrossOrigin
 	@ApiOperation(value= "Upisuje fakultet u bazu podataka")
 
 	public ResponseEntity<Fakultet> insertFakultet(@RequestBody Fakultet fakultet){
@@ -64,7 +64,6 @@ public class FakultetRestController {
 	} 
 	
 	@PutMapping("fakultet")
-	@CrossOrigin
 	@ApiOperation(value= "Modifikuje fakultet u bazi podataka")
 
 	public ResponseEntity<Fakultet> updateFakultet(@RequestBody Fakultet fakultet){
@@ -77,7 +76,6 @@ public class FakultetRestController {
 	
 	
 	@DeleteMapping("fakultet/{id}")
-	@CrossOrigin  
 	@ApiOperation(value= "Briše fakultet iz baze podataka čiji je id prosleđen kao path varijabla")
 
 	public ResponseEntity<Fakultet> deleteFakultet(@PathVariable ("id") Integer id){

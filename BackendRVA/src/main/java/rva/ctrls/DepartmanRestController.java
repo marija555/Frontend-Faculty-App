@@ -25,6 +25,7 @@ import rva.jpa.Departman;
 import rva.repository.DepartmanRepository;
 
 @RestController
+@CrossOrigin
 @Api(tags = {"Departman CRUD operacije"} )
 
 public class DepartmanRestController {
@@ -53,7 +54,6 @@ public class DepartmanRestController {
 	}
 	
 	@PostMapping("departman")
-	@CrossOrigin 
 	@ApiOperation(value= "Upisuje departman u bazu podataka")
 
 	public ResponseEntity<Departman> insertDepartman(@RequestBody Departman departman) {
@@ -65,7 +65,6 @@ public class DepartmanRestController {
 	}
 	
 	@PutMapping("departman")
-	@CrossOrigin
 	@ApiOperation(value= "Modifikuje departman u bazi podataka")
 	
 	public ResponseEntity<Departman> updateDepartman(@RequestBody Departman departman) {
@@ -76,7 +75,6 @@ public class DepartmanRestController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	@DeleteMapping("departman/{id}")
-	@CrossOrigin
 	@ApiOperation(value= "Briše departman iz baze podataka čiji je id prosleđen kao path varijabla")
 	public ResponseEntity<Departman> deleteDepartman(@PathVariable("id") Integer id){
 		if(!departmanRepository.existsById(id))
