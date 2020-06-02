@@ -1,4 +1,3 @@
-
 package rva.ctrls;
 
 import java.util.Collection;
@@ -51,8 +50,9 @@ public class FakultetRestController {
 
 	public Collection<Fakultet> getFakultetByNaziv(@PathVariable("naziv") String naziv) {
 		return fakultetRepository.findByNazivContainingIgnoreCase(naziv);
-}
-	@PostMapping("fakultet")	
+	}
+	
+	@PostMapping("fakultet")
 	@ApiOperation(value= "Upisuje fakultet u bazu podataka")
 
 	public ResponseEntity<Fakultet> insertFakultet(@RequestBody Fakultet fakultet){
@@ -61,14 +61,14 @@ public class FakultetRestController {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.CONFLICT);
-	} 
+	}
 	
 	@PutMapping("fakultet")
 	@ApiOperation(value= "Modifikuje fakultet u bazi podataka")
 
 	public ResponseEntity<Fakultet> updateFakultet(@RequestBody Fakultet fakultet){
 		if(!fakultetRepository.existsById(fakultet.getId())) {
-			  return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		fakultetRepository.save(fakultet);
 		return new ResponseEntity<>(HttpStatus.OK);

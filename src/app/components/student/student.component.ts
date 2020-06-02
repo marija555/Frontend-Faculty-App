@@ -1,3 +1,6 @@
+import { StudentDialogComponent } from './../dialogs/student-dialog/student-dialog.component';
+import { StatusDialogComponent } from './../dialogs/status-dialog/status-dialog.component';
+import { Status } from './../../models/status';
 
 import { Component, OnInit, Input, ViewChild, OnChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,6 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class StudentComponent implements OnInit, OnChanges {
 
 
+
     displayedColumns = ['id', 'ime', 'prezime', 'brojIndeksa', 'status', 'departman',  'actions'];
     dataSource: MatTableDataSource<Student>;
 
@@ -23,7 +27,8 @@ export class StudentComponent implements OnInit, OnChanges {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-    constructor(public studentService : StudentService ) { }
+    constructor(public studentService : StudentService ,
+               public dialog: MatDialog) { }
 
       ngOnInit(): void {
 
@@ -63,6 +68,21 @@ export class StudentComponent implements OnInit, OnChanges {
           this.dataSource.sort = this.sort;
         });
 
+    }
+    public openDialog(flag: number, id?: number, ime?: string, prezime?: string, brojIndeksa?: string, status?: Status, departman?:Departman) {
+      const dialogRef = this.dialog.open(StudentDialogComponent,
+         { data: {
+           i: id, id, ime, prezime, brojIndeksa, status, departman } });
+
+      dialogRef.componentInstance.flag = flag;
+      if (flag === 1) {
+        dialogRef.componentInstance.data.departman = this.selektovanDepartman;
+      }
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 1) {
+          this.loadData();
+        }
+      });
     }
 
     applyFilter(filterValue: string) {

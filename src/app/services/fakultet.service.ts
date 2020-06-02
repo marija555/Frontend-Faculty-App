@@ -29,6 +29,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
     }
 
+    public addFakultet(fakultet: Fakultet):void {
+      fakultet.id = 0;
+     this.httpClient.post(this.API_URL,fakultet).subscribe();
+     console.log('Dodat fakultet: ' + fakultet.naziv);
+  }
+
   public updateFakultet(fakultet: Fakultet): void {
     this.httpClient.put(this.API_URL, fakultet).subscribe();
   }

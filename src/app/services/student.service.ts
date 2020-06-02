@@ -27,7 +27,9 @@ export class StudentService {
   }
 
   public addStudent(student: Student): void {
+    student.id=0;
     this.httpClient.post(this.API_URL, student).subscribe();
+    console.log('Dodat student');
   }
 
   public updateStudent(student: Student): void {

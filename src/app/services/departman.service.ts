@@ -26,7 +26,9 @@ export class DepartmanService {
     return this.dataChange.asObservable();
 }
 public addDepartman(departman: Departman): void {
+    departman.id = 0;
     this.httpClient.post(this.API_URL, departman).subscribe();
+    console.log('Dodat departman: ' + departman.naziv);
 }
 public updateDepartman(departman: Departman): void {
     this.httpClient.put(this.API_URL, departman).subscribe();

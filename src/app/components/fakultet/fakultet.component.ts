@@ -1,3 +1,4 @@
+import { FakultetDialogComponent } from './../dialogs/fakultet-dialog/fakultet-dialog.component';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -5,6 +6,7 @@ import { Fakultet } from './../../models/fakultet';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { FakultetService } from 'src/app/services/fakultet.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-fakultet',
@@ -19,7 +21,8 @@ export class FakultetComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public fakultetService: FakultetService) { }
+  constructor(public fakultetService: FakultetService,
+                public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -32,6 +35,19 @@ export class FakultetComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+}
+
+public openDialog(flag: number, id?: number, naziv?: string, sediste?: string) {
+  const dialogRef = this.dialog.open(FakultetDialogComponent,
+     { data: { id, naziv,sediste } });
+
+  dialogRef.componentInstance.flag = flag;
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === 1) {
+      this.loadData();
+    }
+  });
 }
   applyFilter(filterValue: string){
     filterValue = filterValue.trim();

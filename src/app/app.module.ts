@@ -3,8 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
-import { VoziloComponent } from './components/primer-components/vozilo/vozilo.component';
-import { AutomobilComponent } from './components/primer-components/automobil/automobil.component';
+
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,19 +32,25 @@ import { DepartmanComponent } from './components/departman/departman.component';
 import { StudentComponent } from './components/student/student.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StatusDialogComponent } from './components/dialogs/status-dialog/status-dialog.component';
+import { DepartmanDialogComponent } from './components/dialogs/departman-dialog/departman-dialog.component';
+import { StudentDialogComponent } from './components/dialogs/student-dialog/student-dialog.component';
+import { FakultetDialogComponent } from './components/dialogs/fakultet-dialog/fakultet-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VoziloComponent,
-    AutomobilComponent,
     HomeComponent,
     AutorComponent,
     AboutComponent,
     StatusComponent,
     FakultetComponent,
     DepartmanComponent,
-    StudentComponent
+    StudentComponent,
+    StatusDialogComponent,
+    DepartmanDialogComponent,
+    StudentDialogComponent,
+    FakultetDialogComponent
   ],
   imports: [
     BrowserModule,

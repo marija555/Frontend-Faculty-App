@@ -27,16 +27,18 @@ export class StatusService {
   }
 
   public addStatus(status: Status):void {
-     this.httpClient.post(this.API_URL,status);
+      status.id = 0;
+     this.httpClient.post(this.API_URL,status).subscribe();
+     console.log('Dodat status: ' + status.naziv);
   }
 
   public updateStatus(status: Status): void {
-    this.httpClient.put(this.API_URL,status);
+    this.httpClient.put(this.API_URL,status).subscribe();
   }
 
   public deleteStatus(id: number): void {
     console.log(this.API_URL + id);
-    this.httpClient.delete(this.API_URL + id);
+    this.httpClient.delete(this.API_URL + id).subscribe();
   }
 
 }

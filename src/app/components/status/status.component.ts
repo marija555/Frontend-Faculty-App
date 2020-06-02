@@ -1,3 +1,5 @@
+import { StatusDialogComponent } from './../dialogs/status-dialog/status-dialog.component';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { StatusService } from './../../services/status.service';
 import { Status } from './../../models/status';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -19,9 +21,11 @@ export class StatusComponent implements OnInit {
   @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
   @ViewChild(MatSort,{static: false}) sort: MatSort;
 
-  constructor(private statusService: StatusService) { }
+  constructor(private statusService: StatusService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log('Inicijalizacija Status komponente!');
     this.loadData();
   }
 
@@ -33,6 +37,22 @@ export class StatusComponent implements OnInit {
       this.dataSource.sort = this.sort;
      });
   }
+
+  public openDialog(flag:number , id?:number, naziv?:string, oznaka?: string) {
+    const dialogRef = this.dialog.open(StatusDialogComponent,
+            {data: { id, naziv, oznaka}}
+      );
+
+      dialogRef.componentInstance.flag = flag;
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 1) {
+          this.loadData();
+        }
+      })
+
+  }
+
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLocaleLowerCase();

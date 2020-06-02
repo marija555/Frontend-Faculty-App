@@ -26,7 +26,8 @@ import rva.repository.DepartmanRepository;
 
 @RestController
 @CrossOrigin
-@Api(tags = {"Departman CRUD operacije"} )
+
+@Api(tags = {"Departman CRUD operacije"}  )
 
 public class DepartmanRestController {
 	@Autowired
@@ -39,8 +40,8 @@ public class DepartmanRestController {
 	@ApiOperation(value= "Vraća kolekciju svih departmana iz baze podataka")
 	public Collection<Departman> getDepartman() {
 		return departmanRepository.findAll();
-	} 
-	
+	}
+	 
 	@GetMapping("departman/{id}")
 	@ApiOperation(value= "Vraća departman iz baze podataka čiji je ID prosleđen kao path varijabla")
 	public Departman getDepartman(@PathVariable ("id") Integer id) {
@@ -74,6 +75,7 @@ public class DepartmanRestController {
 	
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
 	@DeleteMapping("departman/{id}")
 	@ApiOperation(value= "Briše departman iz baze podataka čiji je id prosleđen kao path varijabla")
 	public ResponseEntity<Departman> deleteDepartman(@PathVariable("id") Integer id){

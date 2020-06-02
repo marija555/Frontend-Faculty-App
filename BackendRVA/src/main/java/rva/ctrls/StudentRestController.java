@@ -1,4 +1,3 @@
-
 package rva.ctrls;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ public class StudentRestController {
 	@Autowired
 	private DepartmanRepository departmanRepository;
 	
-	@Autowired
+	@Autowired 
 	private JdbcTemplate jdbcTemplate;
 	
 	@GetMapping("student")
@@ -104,6 +103,5 @@ public class StudentRestController {
 		return new ResponseEntity<Student>(HttpStatus.OK);
 	}
 	
-	
+	  
 }
-
