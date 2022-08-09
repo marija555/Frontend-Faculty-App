@@ -36,6 +36,7 @@ import { StatusDialogComponent } from './components/dialogs/status-dialog/status
 import { DepartmanDialogComponent } from './components/dialogs/departman-dialog/departman-dialog.component';
 import { StudentDialogComponent } from './components/dialogs/student-dialog/student-dialog.component';
 import { FakultetDialogComponent } from './components/dialogs/fakultet-dialog/fakultet-dialog.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FakultetDialogComponent } from './components/dialogs/fakultet-dialog/fa
     StatusDialogComponent,
     DepartmanDialogComponent,
     StudentDialogComponent,
-    FakultetDialogComponent
+    FakultetDialogComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
